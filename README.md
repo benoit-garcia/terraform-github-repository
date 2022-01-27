@@ -37,6 +37,12 @@ module "repo" {
 | [github_branch.default](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/branch) | resource |
 | [github_branch_default.this](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/branch_default) | resource |
 | [github_repository.this](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/repository) | resource |
+| [github_team.maintain](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team) | resource |
+| [github_team.read](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team) | resource |
+| [github_team.write](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team) | resource |
+| [github_team_repository.maintain](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team_repository) | resource |
+| [github_team_repository.read](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team_repository) | resource |
+| [github_team_repository.write](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team_repository) | resource |
 
 ## Inputs
 
@@ -61,6 +67,9 @@ module "repo" {
 | <a name="input_homepage_url"></a> [homepage_url](#input_homepage_url) | URL of a page describing the project. | `string` | `null` | no |
 | <a name="input_is_template"></a> [is_template](#input_is_template) | Set to `true` to tell GitHub that this is a template repository. | `bool` | `false` | no |
 | <a name="input_license_template"></a> [license_template](#input_license_template) | Use the name of the template without the extension. For example, `mit` or `mpl-2.0`. | `string` | `null` | no |
+| <a name="input_teams_maintain"></a> [teams_maintain](#input_teams_maintain) | IDs of the teams that will be granted the 'maintain' privilege. If null, a team will be created. | `list(string)` | `[]` | no |
+| <a name="input_teams_read"></a> [teams_read](#input_teams_read) | IDs of the teams that will be granted the 'pull' privilege. If null, a team will be created. | `list(string)` | `[]` | no |
+| <a name="input_teams_write"></a> [teams_write](#input_teams_write) | IDs of the teams that will be granted the 'write' privilege. If null, a team will be created. | `list(string)` | `[]` | no |
 | <a name="input_template"></a> [template](#input_template) | Name of the template to use to create the repository (formed as 'owner/repository'). | `string` | `null` | no |
 | <a name="input_topics"></a> [topics](#input_topics) | The list of topics of the repository. | `list(string)` | `[]` | no |
 | <a name="input_visibility"></a> [visibility](#input_visibility) | Can be public or private. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be internal. The visibility parameter overrides the private parameter. | `string` | `"private"` | no |

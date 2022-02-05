@@ -15,7 +15,7 @@ resource "github_team" "maintain" {
 resource "github_team_repository" "maintain" {
   count = length(var.teams_maintain) == 0 ? 1 : length(var.teams_maintain)
 
-  team_id    = length(var.teams_maintain) == 0 ? github_team.maintain[count.index].id : var.teams_maintain[count.index]
+  team_id    = length(var.teams_maintain) == 0 ? github_team.maintain[count.index].id : data.github_team.maintain[count.index].id
   repository = github_repository.this.name
   permission = "maintain"
 
@@ -43,7 +43,7 @@ resource "github_team" "read" {
 resource "github_team_repository" "read" {
   count = length(var.teams_read) == 0 ? 1 : length(var.teams_read)
 
-  team_id    = length(var.teams_read) == 0 ? github_team.read[count.index].id : var.teams_read[count.index]
+  team_id    = length(var.teams_read) == 0 ? github_team.read[count.index].id : data.github_team.read[count.index].id
   repository = github_repository.this.name
   permission = "pull"
 
@@ -71,7 +71,7 @@ resource "github_team" "write" {
 resource "github_team_repository" "write" {
   count = length(var.teams_write) == 0 ? 1 : length(var.teams_write)
 
-  team_id    = length(var.teams_write) == 0 ? github_team.write[count.index].id : var.teams_write[count.index]
+  team_id    = length(var.teams_write) == 0 ? github_team.write[count.index].id : data.github_team.write[count.index].id
   repository = github_repository.this.name
   permission = "push"
 

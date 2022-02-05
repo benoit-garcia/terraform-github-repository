@@ -112,19 +112,19 @@ variable "license_template" {
 }
 
 variable "teams_maintain" {
-  description = "IDs of the teams that will be granted the 'maintain' privilege. If null, a team will be created."
+  description = "Slugs of the teams that will be granted the 'maintain' privilege. If null, a team will be created."
   type        = list(string)
   default     = []
 }
 
 variable "teams_read" {
-  description = "IDs of the teams that will be granted the 'pull' privilege. If null, a team will be created."
+  description = "Slugs of the teams that will be granted the 'pull' privilege. If null, a team will be created."
   type        = list(string)
   default     = []
 }
 
 variable "teams_write" {
-  description = "IDs of the teams that will be granted the 'write' privilege. If null, a team will be created."
+  description = "Slugs of the teams that will be granted the 'write' privilege. If null, a team will be created."
   type        = list(string)
   default     = []
 }

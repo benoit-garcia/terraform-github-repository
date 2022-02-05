@@ -22,27 +22,27 @@ module "repo" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | ~> 1.0 |
-| <a name="requirement_github"></a> [github](#requirement_github) | 4.19.2 |
+| <a name="requirement_github"></a> [github](#requirement_github) | 4.20.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider_github) | 4.19.2 |
+| <a name="provider_github"></a> [github](#provider_github) | 4.20.0 |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [github_branch.default](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/branch) | resource |
-| [github_branch_default.this](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/branch_default) | resource |
-| [github_repository.this](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/repository) | resource |
-| [github_team.maintain](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team) | resource |
-| [github_team.read](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team) | resource |
-| [github_team.write](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team) | resource |
-| [github_team_repository.maintain](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team_repository) | resource |
-| [github_team_repository.read](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team_repository) | resource |
-| [github_team_repository.write](https://registry.terraform.io/providers/integrations/github/4.19.2/docs/resources/team_repository) | resource |
+| [github_branch.default](https://registry.terraform.io/providers/integrations/github/4.20.0/docs/resources/branch) | resource |
+| [github_branch_default.this](https://registry.terraform.io/providers/integrations/github/4.20.0/docs/resources/branch_default) | resource |
+| [github_repository.this](https://registry.terraform.io/providers/integrations/github/4.20.0/docs/resources/repository) | resource |
+| [github_team.maintain](https://registry.terraform.io/providers/integrations/github/4.20.0/docs/resources/team) | resource |
+| [github_team.read](https://registry.terraform.io/providers/integrations/github/4.20.0/docs/resources/team) | resource |
+| [github_team.write](https://registry.terraform.io/providers/integrations/github/4.20.0/docs/resources/team) | resource |
+| [github_team_repository.maintain](https://registry.terraform.io/providers/integrations/github/4.20.0/docs/resources/team_repository) | resource |
+| [github_team_repository.read](https://registry.terraform.io/providers/integrations/github/4.20.0/docs/resources/team_repository) | resource |
+| [github_team_repository.write](https://registry.terraform.io/providers/integrations/github/4.20.0/docs/resources/team_repository) | resource |
 
 ## Inputs
 

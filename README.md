@@ -59,6 +59,7 @@ module "repo" {
 | <a name="input_archive_on_destroy"></a> [archive_on_destroy](#input_archive_on_destroy) | Set to false to delete the repository instead of archiving on destroy. | `bool` | `true` | no |
 | <a name="input_archived"></a> [archived](#input_archived) | Specifies if the repository should be archived. Defaults to false. NOTE Currently, the API does not support unarchiving. | `bool` | `false` | no |
 | <a name="input_auto_init"></a> [auto_init](#input_auto_init) | Set to `false` to prevent producing an initial commit in the repository. | `bool` | `true` | no |
+| <a name="input_create_new_teams"></a> [create_new_teams](#input_create_new_teams) | Create new teams to delegate permissions on the repositor. | `bool` | `false` | no |
 | <a name="input_default_branch"></a> [default_branch](#input_default_branch) | The name of the repository branch. | `string` | `"main"` | no |
 | <a name="input_delete_branch_on_merge"></a> [delete_branch_on_merge](#input_delete_branch_on_merge) | Automatically delete head branch after a pull request is merged. Defaults to true. | `bool` | `true` | no |
 | <a name="input_description"></a> [description](#input_description) | A description of the repository. | `string` | `null` | no |

@@ -111,6 +111,12 @@ variable "license_template" {
   default     = null
 }
 
+variable "create_new_teams" {
+  description = "Create new teams to delegate permissions on the repositor."
+  type        = bool
+  default     = false
+}
+
 variable "teams_maintain" {
   description = "Slugs of the teams that will be granted the 'maintain' privilege. If null, a team will be created."
   type        = list(string)

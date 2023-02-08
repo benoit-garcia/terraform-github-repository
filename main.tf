@@ -45,7 +45,6 @@ resource "github_repository" "this" {
     ignore_changes = [
       archive_on_destroy,
       auto_init,
-      etag,
     ]
   }
 }

@@ -60,3 +60,10 @@ resource "github_branch_default" "this" {
   repository = github_repository.this.name
   branch     = var.default_branch == "main" ? "main" : github_branch.default[0].branch
 }
+
+resource "github_repository_tag_protection" "this" {
+  count = length(var.tag_protections)
+
+  repository = github_repository.this.name
+  pattern    = var.tag_protections[count.index]
+}

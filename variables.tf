@@ -164,3 +164,21 @@ variable "tag_protections" {
   type        = list(string)
   default     = []
 }
+
+variable "branch_protections" {
+  description = "List of branches to protect, allong with their configuration."
+  type = list(object({
+    branch                          = string,
+    enforce_admins                  = bool,
+    require_signed_commits          = bool,
+    require_conversation_resolution = bool,
+    force_branch_update             = bool,
+    checks                          = list(string),
+    dismiss_stale_reviews           = bool,
+    dismissal_teams                 = list(string),
+    dismissal_users                 = list(string),
+    require_code_owner_reviews      = bool,
+    required_approving_review_count = number
+  }))
+  default = []
+}

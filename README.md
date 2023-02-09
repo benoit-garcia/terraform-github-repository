@@ -36,6 +36,7 @@ module "repo" {
 |------|------|
 | [github_branch.default](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch) | resource |
 | [github_branch_default.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_default) | resource |
+| [github_branch_protection_v3.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection_v3) | resource |
 | [github_repository.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository) | resource |
 | [github_repository_tag_protection.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_tag_protection) | resource |
 | [github_team.maintain](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team) | resource |
@@ -60,6 +61,7 @@ module "repo" {
 | <a name="input_archive_on_destroy"></a> [archive_on_destroy](#input_archive_on_destroy) | Set to false to delete the repository instead of archiving on destroy. | `bool` | `true` | no |
 | <a name="input_archived"></a> [archived](#input_archived) | Specifies if the repository should be archived. Defaults to false. NOTE Currently, the API does not support unarchiving. | `bool` | `false` | no |
 | <a name="input_auto_init"></a> [auto_init](#input_auto_init) | Set to `false` to prevent producing an initial commit in the repository. | `bool` | `true` | no |
+| <a name="input_branch_protections"></a> [branch_protections](#input_branch_protections) | List of branches to protect, allong with their configuration. | ```list(object({ branch = string, enforce_admins = bool, require_signed_commits = bool, require_conversation_resolution = bool, force_branch_update = bool, checks = list(string), dismiss_stale_reviews = bool, dismissal_teams = list(string), dismissal_users = list(string), require_code_owner_reviews = bool, required_approving_review_count = number }))``` | `[]` | no |
 | <a name="input_create_new_teams"></a> [create_new_teams](#input_create_new_teams) | Create new teams to delegate permissions on the repositor. | `bool` | `false` | no |
 | <a name="input_default_branch"></a> [default_branch](#input_default_branch) | The name of the repository branch. | `string` | `"main"` | no |
 | <a name="input_delete_branch_on_merge"></a> [delete_branch_on_merge](#input_delete_branch_on_merge) | Automatically delete head branch after a pull request is merged. Defaults to true. | `bool` | `true` | no |

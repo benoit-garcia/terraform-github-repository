@@ -158,3 +158,9 @@ variable "vulnerability_alerts" {
   type        = bool
   default     = true
 }
+
+variable "tag_protections" {
+  description = "List of tag patterns to protect."
+  type        = list(string)
+  default     = []
+}

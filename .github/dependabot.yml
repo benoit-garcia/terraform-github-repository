@@ -1,16 +1,17 @@
+---
 version: 2
 updates:
 
-- package-ecosystem: github-actions
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "04:00"
-    timezone: Europe/Paris
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "04:00"
+      timezone: Europe/Paris
 
-- package-ecosystem: terraform
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "04:00"
-    timezone: Europe/Paris
+  - package-ecosystem: terraform
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "04:00"
+      timezone: Europe/Paris

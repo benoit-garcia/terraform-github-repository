@@ -1,0 +1,75 @@
+---
+name: Pull Request checks
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+jobs:
+  terraform-docs:
+    name: Terraform Documentation validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3.6.0
+      - name: run terraform-docs
+        uses: terraform-docs/gh-actions@f6d59f89a280fa0a3febf55ef68f146784b20ba0  # v1.0.0
+        with:
+          config-file: .terraform-docs.yaml
+          fail-on-diff: true
+
+  terraform-fmt:
+    name: Terraform Formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3.6.0
+      - name: setup terraform
+        uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1  # v2.0.3
+      - name: terraform fmt
+        run: terraform fmt -check -diff -recursive ./
+
+  terraform-validate:
+    name: Terraform config validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3.6.0
+      - name: setup terraform
+        uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1  # v2.0.3
+      - name: terraform init
+        run: terraform init
+      - name: terraform validate
+        run: terraform validate
+
+  tflint:
+    name: Run TFLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3.6.0
+      - name: Cache plugin dir
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8  # v3.3.1
+        with:
+          path: ~/.tflint.d/plugins
+          key: tflint-${{ hashFiles('.tflint.hcl') }}
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@a5a1af8c6551fb10c53f1cd4ba62359f1973746f  # v3.1.1
+      - name: Init TFLint
+        run: tflint --init
+      - name: Run TFLint
+        run: tflint -f compact
+
+  yaml-lint:
+    name: Check YAML linting
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744  # v3.6.0
+      - name: run yamllint
+        run: |
+          yamllint .

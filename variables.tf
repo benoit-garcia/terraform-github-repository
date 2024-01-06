@@ -164,6 +164,12 @@ variable "vulnerability_alerts" {
   default     = true
 }
 
+variable "web_commit_signoff_required" {
+  description = "Require contributors to sign off on web-based commits."
+  type        = bool
+  default     = false
+}
+
 variable "tag_protections" {
   description = "List of tag patterns to protect."
   type        = list(string)

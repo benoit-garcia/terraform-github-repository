@@ -83,6 +83,7 @@ module "repo" {
 | <a name="input_topics"></a> [topics](#input_topics) | The list of topics of the repository. | `list(string)` | `[]` | no |
 | <a name="input_visibility"></a> [visibility](#input_visibility) | Can be public or private. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, visibility can also be internal. The visibility parameter overrides the private parameter. | `string` | `"private"` | no |
 | <a name="input_vulnerability_alerts"></a> [vulnerability_alerts](#input_vulnerability_alerts) | Set to true to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See GitHub Documentation for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings. | `bool` | `true` | no |
+| <a name="input_web_commit_signoff_required"></a> [web_commit_signoff_required](#input_web_commit_signoff_required) | Require contributors to sign off on web-based commits. | `bool` | `false` | no |
 
 ## Outputs
 

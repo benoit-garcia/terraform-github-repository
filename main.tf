@@ -2,12 +2,13 @@ resource "github_repository" "this" {
   name = var.name
 
   # Informations
-  description          = var.description
-  homepage_url         = var.homepage_url
-  is_template          = var.is_template
-  topics               = var.topics
-  visibility           = var.visibility
-  vulnerability_alerts = var.vulnerability_alerts
+  description                 = var.description
+  homepage_url                = var.homepage_url
+  is_template                 = var.is_template
+  topics                      = var.topics
+  visibility                  = var.visibility
+  vulnerability_alerts        = var.vulnerability_alerts
+  web_commit_signoff_required = var.web_commit_signoff_required
 
   # Initialization settings
   auto_init          = var.auto_init

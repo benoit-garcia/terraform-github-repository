@@ -69,6 +69,11 @@ variable "gitignore_template" {
   default     = null
 }
 
+variable "has_discussions" {
+  description = " Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`."
+  type        = bool
+  default     = false
+}
 variable "has_downloads" {
   description = "Set to `true` to enable the (deprecated) downloads features on the repository."
   type        = bool

@@ -26,10 +26,11 @@ resource "github_repository" "this" {
   archived           = var.archived
 
   # Features
-  has_downloads = var.has_downloads
-  has_issues    = var.has_issues
-  has_projects  = var.has_projects
-  has_wiki      = var.has_wiki
+  has_discussions = var.has_discussions
+  has_downloads   = var.has_downloads
+  has_issues      = var.has_issues
+  has_projects    = var.has_projects
+  has_wiki        = var.has_wiki
   # pages         = var.pages
 
   dynamic "template" {

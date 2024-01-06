@@ -1,81 +1,65 @@
-# Contributing
+# Contributing Guidelines
 
-To contribute to this project you must respect certains rules.
+Thank you for your interest in contributing to our project. Whether it's a bug report, new feature, correction, or additional
+documentation, we greatly value feedback and contributions from our community.
 
-## tree structure
+Please read through this document before submitting any issues or pull requests to ensure we have all the necessary
+information to effectively respond to your bug report or contribution.
 
-A terraform module must respect the [Standard Module Structure](https://www.terraform.io/language/modules/develop/structure).
+
+## Reporting Bugs/Feature Requests
+
+We welcome you to use the GitHub issue tracker to report bugs or suggest features.
+
+When filing an issue, please check existing open, or recently closed, issues to make sure somebody else hasn't already
+reported the issue. Please try to include as much information as you can. Details like these are incredibly useful:
+
+* A reproducible test case or series of steps
+* The version of our code being used
+* Any modifications you've made relevant to the bug
+* Anything unusual about your environment or deployment
+
+
+## Contributing via Pull Requests
+Contributions via pull requests are much appreciated. Before sending us a pull request, please ensure that:
+
+1. You are working against the latest source on the *main* branch.
+2. You check existing open, and recently merged, pull requests to make sure someone else hasn't addressed the problem already.
+3. You open an issue to discuss any significant work - we would hate for your time to be wasted.
+
+To send us a pull request, please:
+
+1. Fork the repository.
+2. Modify the source; please focus on the specific change you are contributing. If you also reformat all the code, it will be hard for us to focus on your change.
+3. Ensure local tests pass.
+4. Commit to your fork using clear commit messages.
+5. Send us a pull request, answering any default questions in the pull request interface.
+6. Pay attention to any automated CI failures reported in the pull request, and stay involved in the conversation.
+
+GitHub provides additional document on [forking a repository](https://help.github.com/articles/fork-a-repo/) and
+[creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
+
+
+## Finding contributions to work on
+Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
+
+## Tree Structure
+Use the terraform [Standard Module Structure](https://www.terraform.io/language/modules/develop/structure) as much as possible.
 
 ```text
 terraform-module/
 ├── .github/
 │   └── workflows/          # Contains github workflows (pre-commit, release)
-├── .pre-commit-config.yaml # Configuration for pre-commit
 ├── .terraform-docs.yaml    # Configuration for terraform-docs
 ├── .tflint.hcl             # Configuration for tflint
+├── .yamllint.yaml          # Configuration for yamllint
 ├── main.tf                 # Ressource created
 ├── variables.tf            # Variables
 ├── outputs.tf              # Outputs
 └── providers.tf            # Provider if some are necessary
-
 ```
 
-## Install pre-commit (Optional but recommanded)
-
-### Machine
-
-Install:
-
-```bash
-brew install pre-commit
-```
-
-Add to repo on pre-commit. To do **once**:
-
-```bash
-pre-commit install
-```
-
-If you prefer running pre-commit checks before push:
-
-```bash
-pre-commit install -t pre-push
-```
-
-It will automatically run after each commits / push depending of your configuration or by running manually:
-
-```bash
-pre-commit run -a
-```
-
-### Docker
-
-:warning: To use this build locally the image `pre-commit`, in a future version we will host our own version :warning:
-
-```bash
-git clone git@github.com:antonbabenko/pre-commit-terraform.git
-cd pre-commit-terraform
-# Install the latest versions of all the tools
-docker build -t pre-commit --build-arg INSTALL_ALL=true .
-```
-
-Copy this script in: `.git/hooks/pre-commit` or `.git/hooks/pre-push`:
-
-```bash
-cd $(git rev-parse --show-toplevel)
-
-NAME=$(basename `git rev-parse --show-toplevel`)_precommit
-docker run --rm -t -v $(pwd):/lint -w /lint --name $NAME pre-commit
-```
-
-Run manually:
-
-```bash
-docker run -v $(pwd):/lint -w /lint pre-commit run -a
-```
-
-## Commits
-
+## Commits messages
 We do not impose a convention on commit. Use your own workflow, just try to have clear commits.
 
 ## PR
@@ -98,10 +82,6 @@ BREAKING CHANGE: Add mandatory variable 'name'
 
 To find more informations read [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Important other keyword are explained (like chore:).
 
-## Github Action
 
-Pre-commit will be launch in a Github workflow to do differents checks (lint, docs, security...):
-`.github/workflows/pre-commit.yaml`
-
-You can deploy a new version by executing the Workflow release with `dry-run: false`:
-`.github/workflows/release.yaml`
+## Licensing
+See the LICENSE file for our project's licensing.

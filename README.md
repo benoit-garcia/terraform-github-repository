@@ -21,14 +21,14 @@ module "repo" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | ~> 1.0 |
-| <a name="requirement_github"></a> [github](#requirement_github) | ~> 5.16 |
+| <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | ~> 1 |
+| <a name="requirement_github"></a> [github](#requirement_github) | ~> 5 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider_github) | ~> 5.16 |
+| <a name="provider_github"></a> [github](#provider_github) | ~> 5 |
 
 ## Resources
 

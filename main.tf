@@ -20,6 +20,7 @@ resource "github_repository" "this" {
   allow_merge_commit     = var.allow_merge_commit
   allow_rebase_merge     = var.allow_rebase_merge
   allow_squash_merge     = var.allow_squash_merge
+  allow_update_branch    = var.allow_update_branch
   delete_branch_on_merge = var.delete_branch_on_merge
 
   # Archiving behavior

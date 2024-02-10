@@ -22,13 +22,13 @@ module "repo" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | ~> 1 |
-| <a name="requirement_github"></a> [github](#requirement_github) | ~> 5 |
+| <a name="requirement_github"></a> [github](#requirement_github) | ~> 5, >= 5.7.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider_github) | ~> 5 |
+| <a name="provider_github"></a> [github](#provider_github) | ~> 5, >= 5.7.0 |
 
 ## Resources
 
@@ -58,6 +58,7 @@ module "repo" {
 | <a name="input_allow_merge_commit"></a> [allow_merge_commit](#input_allow_merge_commit) | Set to `true` to enable merge commits on the repository. | `bool` | `false` | no |
 | <a name="input_allow_rebase_merge"></a> [allow_rebase_merge](#input_allow_rebase_merge) | Set to `true` to disable rebase merges on the repository. | `bool` | `false` | no |
 | <a name="input_allow_squash_merge"></a> [allow_squash_merge](#input_allow_squash_merge) | Set to `false` to disable squash merges on the repository. | `bool` | `true` | no |
+| <a name="input_allow_update_branch"></a> [allow_update_branch](#input_allow_update_branch) | Set to `true` to always suggest updating pull request branches. | `bool` | `true` | no |
 | <a name="input_archive_on_destroy"></a> [archive_on_destroy](#input_archive_on_destroy) | Set to false to delete the repository instead of archiving on destroy. | `bool` | `true` | no |
 | <a name="input_archived"></a> [archived](#input_archived) | Specifies if the repository should be archived. Defaults to false. NOTE Currently, the API does not support unarchiving. | `bool` | `false` | no |
 | <a name="input_auto_init"></a> [auto_init](#input_auto_init) | Set to `false` to prevent producing an initial commit in the repository. | `bool` | `true` | no |

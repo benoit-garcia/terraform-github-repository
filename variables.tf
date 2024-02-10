@@ -179,16 +179,25 @@ variable "tag_protections" {
 variable "branch_protections" {
   description = "List of branches to protect, allong with their configuration."
   type = map(object({
-    enforce_admins                  = optional(bool, true),
-    require_signed_commits          = optional(bool, true),
-    require_conversation_resolution = optional(bool, true),
-    force_branch_update             = optional(bool, true),
-    checks                          = optional(list(string), []),
+    allows_deletions                = optional(bool, false),
+    allows_force_pushes             = optional(bool, false),
+    blocks_creations                = optional(bool, true),
+    contexts                        = optional(list(string), []),
     dismiss_stale_reviews           = optional(bool, true),
-    dismissal_teams                 = optional(list(string), []),
-    dismissal_users                 = optional(list(string), []),
+    dismissal_restrictions          = optional(list(string), []),
+    enforce_admins                  = optional(bool, true),
+    force_push_bypassers            = optional(list(string), []),
+    lock_branch                     = optional(bool, false),
+    pull_request_bypassers          = optional(list(string), []),
+    push_restrictions               = optional(list(string), []),
     require_code_owner_reviews      = optional(bool, true),
+    require_conversation_resolution = optional(bool, true),
+    require_last_push_approval      = optional(bool, true),
+    require_signed_commits          = optional(bool, true),
     required_approving_review_count = optional(number, 2),
+    required_linear_history         = optional(bool, true),
+    restrict_dismissals             = optional(bool, false),
+    strict                          = optional(bool, true),
   }))
   default = {}
 }

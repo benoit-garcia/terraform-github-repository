@@ -11,25 +11,25 @@ resource "github_branch_default" "this" {
 }
 
 resource "github_branch_protection_v3" "this" {
-  count = length(var.branch_protections)
+  for_each = var.branch_protections
 
   repository = github_repository.this.name
 
-  branch                          = var.branch_protections[count.index].branch
-  enforce_admins                  = var.branch_protections[count.index].enforce_admins
-  require_signed_commits          = var.branch_protections[count.index].require_signed_commits
-  require_conversation_resolution = var.branch_protections[count.index].require_conversation_resolution
+  branch                          = each.key
+  enforce_admins                  = each.value["enforce_admins"]
+  require_signed_commits          = each.value["require_signed_commits"]
+  require_conversation_resolution = each.value["require_conversation_resolution"]
 
   required_status_checks {
-    strict = var.branch_protections[count.index].force_branch_update
-    checks = var.branch_protections[count.index].checks
+    strict = each.value["force_branch_update"]
+    checks = each.value["checks"]
   }
 
   required_pull_request_reviews {
-    dismiss_stale_reviews           = var.branch_protections[count.index].dismiss_stale_reviews
-    dismissal_teams                 = var.branch_protections[count.index].dismissal_teams
-    dismissal_users                 = var.branch_protections[count.index].dismissal_users
-    require_code_owner_reviews      = var.branch_protections[count.index].require_code_owner_reviews
-    required_approving_review_count = var.branch_protections[count.index].required_approving_review_count
+    dismiss_stale_reviews           = each.value["dismiss_stale_reviews"]
+    dismissal_teams                 = each.value["dismissal_teams"]
+    dismissal_users                 = each.value["dismissal_users"]
+    require_code_owner_reviews      = each.value["require_code_owner_reviews"]
+    required_approving_review_count = each.value["required_approving_review_count"]
   }
 }

@@ -178,18 +178,17 @@ variable "tag_protections" {
 
 variable "branch_protections" {
   description = "List of branches to protect, allong with their configuration."
-  type = list(object({
-    branch                          = string,
-    enforce_admins                  = bool,
-    require_signed_commits          = bool,
-    require_conversation_resolution = bool,
-    force_branch_update             = bool,
-    checks                          = list(string),
-    dismiss_stale_reviews           = bool,
-    dismissal_teams                 = list(string),
-    dismissal_users                 = list(string),
-    require_code_owner_reviews      = bool,
-    required_approving_review_count = number
+  type = map(object({
+    enforce_admins                  = optional(bool, true),
+    require_signed_commits          = optional(bool, true),
+    require_conversation_resolution = optional(bool, true),
+    force_branch_update             = optional(bool, true),
+    checks                          = optional(list(string), []),
+    dismiss_stale_reviews           = optional(bool, true),
+    dismissal_teams                 = optional(list(string), []),
+    dismissal_users                 = optional(list(string), []),
+    require_code_owner_reviews      = optional(bool, true),
+    required_approving_review_count = optional(number, 2),
   }))
-  default = []
+  default = {}
 }

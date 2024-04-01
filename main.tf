@@ -16,12 +16,16 @@ resource "github_repository" "this" {
   license_template   = var.license_template
 
   # Merge settings
-  allow_auto_merge       = var.allow_auto_merge
-  allow_merge_commit     = var.allow_merge_commit
-  allow_rebase_merge     = var.allow_rebase_merge
-  allow_squash_merge     = var.allow_squash_merge
-  allow_update_branch    = var.allow_update_branch
-  delete_branch_on_merge = var.delete_branch_on_merge
+  allow_auto_merge            = var.allow_auto_merge
+  allow_merge_commit          = var.allow_merge_commit
+  merge_commit_title          = var.merge_commit_title
+  merge_commit_message        = var.merge_commit_message
+  allow_rebase_merge          = var.allow_rebase_merge
+  allow_squash_merge          = var.allow_squash_merge
+  squash_merge_commit_title   = var.squash_merge_commit_title
+  squash_merge_commit_message = var.squash_merge_commit_message
+  allow_update_branch         = var.allow_update_branch
+  delete_branch_on_merge      = var.delete_branch_on_merge
 
   # Archiving behavior
   archive_on_destroy = var.archive_on_destroy

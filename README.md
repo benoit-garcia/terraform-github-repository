@@ -22,13 +22,13 @@ module "repo" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | ~> 1 |
-| <a name="requirement_github"></a> [github](#requirement_github) | ~> 5, >= 5.7.0 |
+| <a name="requirement_github"></a> [github](#requirement_github) | ~> 6, >= 6.2.1 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider_github) | ~> 5, >= 5.7.0 |
+| <a name="provider_github"></a> [github](#provider_github) | ~> 6, >= 6.2.1 |
 
 ## Resources
 
@@ -62,7 +62,7 @@ module "repo" {
 | <a name="input_archive_on_destroy"></a> [archive_on_destroy](#input_archive_on_destroy) | Set to false to delete the repository instead of archiving on destroy. | `bool` | `true` | no |
 | <a name="input_archived"></a> [archived](#input_archived) | Specifies if the repository should be archived. Defaults to false. NOTE Currently, the API does not support unarchiving. | `bool` | `false` | no |
 | <a name="input_auto_init"></a> [auto_init](#input_auto_init) | Set to `false` to prevent producing an initial commit in the repository. | `bool` | `true` | no |
-| <a name="input_branch_protections"></a> [branch_protections](#input_branch_protections) | List of branches to protect, allong with their configuration. | ```map(object({ allows_deletions = optional(bool, false), allows_force_pushes = optional(bool, false), blocks_creations = optional(bool, true), contexts = optional(list(string), []), dismiss_stale_reviews = optional(bool, true), dismissal_restrictions = optional(list(string), []), enforce_admins = optional(bool, true), force_push_bypassers = optional(list(string), []), lock_branch = optional(bool, false), pull_request_bypassers = optional(list(string), []), push_restrictions = optional(list(string), []), require_code_owner_reviews = optional(bool, true), require_conversation_resolution = optional(bool, true), require_last_push_approval = optional(bool, true), require_signed_commits = optional(bool, true), required_approving_review_count = optional(number, 2), required_linear_history = optional(bool, true), restrict_dismissals = optional(bool, false), strict = optional(bool, true), }))``` | `{}` | no |
+| <a name="input_branch_protections"></a> [branch_protections](#input_branch_protections) | List of branches to protect, allong with their configuration. | ```map(object({ allows_deletions = optional(bool, false), allows_force_pushes = optional(bool, false), blocks_creations = optional(bool, false), contexts = optional(list(string), []), dismiss_stale_reviews = optional(bool, true), dismissal_restrictions = optional(list(string), []), enforce_admins = optional(bool, true), force_push_bypassers = optional(list(string), []), lock_branch = optional(bool, false), push_allowances = optional(list(string), []), pull_request_bypassers = optional(list(string), []), require_code_owner_reviews = optional(bool, true), require_conversation_resolution = optional(bool, true), require_last_push_approval = optional(bool, true), require_signed_commits = optional(bool, true), required_approving_review_count = optional(number, 2), required_linear_history = optional(bool, true), restrict_dismissals = optional(bool, false), strict = optional(bool, true), }))``` | `{}` | no |
 | <a name="input_create_new_teams"></a> [create_new_teams](#input_create_new_teams) | Create new teams to delegate permissions on the repositor. | `bool` | `false` | no |
 | <a name="input_default_branch"></a> [default_branch](#input_default_branch) | The name of the repository branch. | `string` | `"main"` | no |
 | <a name="input_delete_branch_on_merge"></a> [delete_branch_on_merge](#input_delete_branch_on_merge) | Automatically delete head branch after a pull request is merged. Defaults to true. | `bool` | `true` | no |

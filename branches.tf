@@ -18,11 +18,9 @@ resource "github_branch_protection" "this" {
 
   allows_deletions                = each.value["allows_deletions"]
   allows_force_pushes             = each.value["allows_force_pushes"]
-  blocks_creations                = each.value["blocks_creations"]
   enforce_admins                  = each.value["enforce_admins"]
   force_push_bypassers            = each.value["force_push_bypassers"]
   lock_branch                     = each.value["lock_branch"]
-  push_restrictions               = each.value["push_restrictions"]
   require_conversation_resolution = each.value["require_conversation_resolution"]
   require_signed_commits          = each.value["require_signed_commits"]
   required_linear_history         = each.value["required_linear_history"]
@@ -40,5 +38,10 @@ resource "github_branch_protection" "this" {
   required_status_checks {
     strict   = each.value["strict"]
     contexts = each.value["contexts"]
+  }
+
+  restrict_pushes {
+    blocks_creations = each.value["blocks_creations"]
+    push_allowances  = each.value["push_allowances"]
   }
 }

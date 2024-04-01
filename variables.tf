@@ -15,6 +15,26 @@ variable "allow_merge_commit" {
   default     = false
 }
 
+variable "merge_commit_title" {
+  description = "Title of merge commit messages. Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`."
+  type        = string
+  default     = "MERGE_MESSAGE"
+  validation {
+    condition     = var.merge_commit_title == "PR_TITLE" || var.merge_commit_title == "MERGE_MESSAGE"
+    error_message = "The `merge_commit_title` value must be `PR_TITLE` or `MERGE_MESSAGE`."
+  }
+}
+
+variable "merge_commit_message" {
+  description = "Message of merge commit messages. Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`."
+  type        = string
+  default     = "PR_TITLE"
+  validation {
+    condition     = var.merge_commit_message == "PR_BODY" || var.merge_commit_message == "PR_TITLE" || var.merge_commit_message == "BLANK"
+    error_message = "The `merge_commit_message` value must be `PR_BODY`, `PR_TITLE`, or `BLANK`."
+  }
+}
+
 variable "allow_rebase_merge" {
   description = "Set to `true` to disable rebase merges on the repository."
   type        = bool
@@ -25,6 +45,26 @@ variable "allow_squash_merge" {
   description = "Set to `false` to disable squash merges on the repository."
   type        = bool
   default     = true
+}
+
+variable "squash_merge_commit_title" {
+  description = "Title of squash merge commit messages. Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`."
+  type        = string
+  default     = "COMMIT_OR_PR_TITLE"
+  validation {
+    condition     = var.squash_merge_commit_title == "PR_TITLE" || var.squash_merge_commit_title == "COMMIT_OR_PR_TITLE"
+    error_message = "The `squash_merge_commit_title` value must be `PR_TITLE` or `COMMIT_OR_PR_TITLE`."
+  }
+}
+
+variable "squash_merge_commit_message" {
+  description = "Message of squash merge commit messages.Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`."
+  type        = string
+  default     = "COMMIT_MESSAGES"
+  validation {
+    condition     = var.squash_merge_commit_message == "PR_BODY" || var.squash_merge_commit_message == "COMMIT_MESSAGES" || var.squash_merge_commit_message == "BLANK"
+    error_message = "The `squash_merge_commit_message` value must be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK`."
+  }
 }
 
 variable "allow_update_branch" {

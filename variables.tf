@@ -259,10 +259,6 @@ variable "labels" {
       color       = "d73a4a"
       description = "Something isn't working"
     },
-    "dependencies" = {
-      color       = "0366d6"
-      description = "Pull requests that update a dependency file"
-    },
     "documentation" = {
       color       = "0075ca"
       description = "Improvements or additions to documentation"
@@ -275,10 +271,6 @@ variable "labels" {
       color       = "a2eeef"
       description = "New feature or request"
     },
-    "github_actions" = {
-      color       = "000000"
-      description = "Pull requests that update GitHub Actions code"
-    },
     "good first issue" = {
       color       = "7057ff"
       description = "Good for newcomers"
@@ -286,6 +278,10 @@ variable "labels" {
     "help wanted" = {
       color       = "008672"
       description = "Extra attention is needed"
+    },
+    "invalid" = {
+      color       = "e4e669"
+      description = "This doesn't seem right"
     },
     "question" = {
       color       = "d876e3"

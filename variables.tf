@@ -248,52 +248,17 @@ variable "branch_protections" {
   default = {}
 }
 
+variable "create_default_labels" {
+  description = "Create github default labels"
+  type        = bool
+  default     = true
+}
+
 variable "labels" {
   description = "List of issues label"
   type = map(object({
     color       = string,
     description = optional(string, null),
   }))
-  default = {
-    "bug" = {
-      color       = "d73a4a"
-      description = "Something isn't working"
-    },
-    "dependencies" = {
-      color       = "0366d6"
-      description = "Pull requests that update a dependency file"
-    },
-    "documentation" = {
-      color       = "0075ca"
-      description = "Improvements or additions to documentation"
-    },
-    "duplicate" = {
-      color       = "cfd3d7"
-      description = "This issue or pull request already exists"
-    },
-    "enhancement" = {
-      color       = "a2eeef"
-      description = "New feature or request"
-    },
-    "github_actions" = {
-      color       = "000000"
-      description = "Pull requests that update GitHub Actions code"
-    },
-    "good first issue" = {
-      color       = "7057ff"
-      description = "Good for newcomers"
-    },
-    "help wanted" = {
-      color       = "008672"
-      description = "Extra attention is needed"
-    },
-    "question" = {
-      color       = "d876e3"
-      description = "Further information is requested"
-    },
-    "wontfix" = {
-      color       = "ffffff"
-      description = "This will not be worked on"
-    },
-  }
+  default = {}
 }

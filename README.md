@@ -39,7 +39,7 @@ module "repo" {
 | [github_branch_protection.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection) | resource |
 | [github_issue_label.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/issue_label) | resource |
 | [github_repository.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository) | resource |
-| [github_repository_tag_protection.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_tag_protection) | resource |
+| [github_repository_ruleset.tag_protection](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_ruleset) | resource |
 | [github_team.maintain](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team) | resource |
 | [github_team.read](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team) | resource |
 | [github_team.write](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team) | resource |
@@ -81,9 +81,9 @@ module "repo" {
 | <a name="input_license_template"></a> [license_template](#input_license_template) | Use the name of the template without the extension. For example, `mit` or `mpl-2.0`. | `string` | `null` | no |
 | <a name="input_merge_commit_message"></a> [merge_commit_message](#input_merge_commit_message) | Message of merge commit messages. Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`. | `string` | `"PR_TITLE"` | no |
 | <a name="input_merge_commit_title"></a> [merge_commit_title](#input_merge_commit_title) | Title of merge commit messages. Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`. | `string` | `"MERGE_MESSAGE"` | no |
+| <a name="input_protect_tags"></a> [protect_tags](#input_protect_tags) | Enable rules so only Repository and Organization admins can push tags. | `bool` | `true` | no |
 | <a name="input_squash_merge_commit_message"></a> [squash_merge_commit_message](#input_squash_merge_commit_message) | Message of squash merge commit messages.Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`. | `string` | `"COMMIT_MESSAGES"` | no |
 | <a name="input_squash_merge_commit_title"></a> [squash_merge_commit_title](#input_squash_merge_commit_title) | Title of squash merge commit messages. Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`. | `string` | `"COMMIT_OR_PR_TITLE"` | no |
-| <a name="input_tag_protections"></a> [tag_protections](#input_tag_protections) | List of tag patterns to protect. | `list(string)` | `[]` | no |
 | <a name="input_teams_maintain"></a> [teams_maintain](#input_teams_maintain) | Slugs of the teams that will be granted the 'maintain' privilege. If null, a team will be created. | `list(string)` | `[]` | no |
 | <a name="input_teams_read"></a> [teams_read](#input_teams_read) | Slugs of the teams that will be granted the 'pull' privilege. If null, a team will be created. | `list(string)` | `[]` | no |
 | <a name="input_teams_write"></a> [teams_write](#input_teams_write) | Slugs of the teams that will be granted the 'write' privilege. If null, a team will be created. | `list(string)` | `[]` | no |

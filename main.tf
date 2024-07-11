@@ -56,9 +56,37 @@ resource "github_repository" "this" {
   }
 }
 
-resource "github_repository_tag_protection" "this" {
-  count = length(var.tag_protections)
+resource "github_repository_ruleset" "tag_protection" {
+  count = var.protect_tags ? 1 : 0
 
-  repository = github_repository.this.name
-  pattern    = var.tag_protections[count.index]
+  enforcement = "active"
+  name        = "Tag protection"
+  repository  = github_repository.this.name
+  target      = "tag"
+
+  conditions {
+    ref_name {
+      include = ["~ALL"]
+      exclude = []
+    }
+  }
+
+  bypass_actors {
+    actor_id    = 1
+    actor_type  = "OrganizationAdmin"
+    bypass_mode = "always"
+  }
+
+  bypass_actors {
+    actor_id    = 5
+    actor_type  = "RepositoryRole"
+    bypass_mode = "always"
+  }
+
+  rules {
+    creation         = true
+    deletion         = true
+    update           = true
+    non_fast_forward = true
+  }
 }

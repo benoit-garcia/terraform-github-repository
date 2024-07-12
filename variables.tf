@@ -216,10 +216,10 @@ variable "web_commit_signoff_required" {
   default     = false
 }
 
-variable "tag_protections" {
-  description = "List of tag patterns to protect."
-  type        = list(string)
-  default     = []
+variable "protect_tags" {
+  description = "Enable rules so only Repository and Organization admins can push tags."
+  type        = bool
+  default     = true
 }
 
 variable "branch_protections" {

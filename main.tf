@@ -72,7 +72,7 @@ resource "github_repository_ruleset" "tag_protection" {
   }
 
   bypass_actors {
-    actor_id    = 1
+    actor_id    = 0 # According to documentation this should be set to 1
     actor_type  = "OrganizationAdmin"
     bypass_mode = "always"
   }

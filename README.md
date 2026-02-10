@@ -71,7 +71,6 @@ module "repo" {
 | <a name="input_description"></a> [description](#input_description) | A description of the repository. | `string` | `null` | no |
 | <a name="input_gitignore_template"></a> [gitignore_template](#input_gitignore_template) | Use the name of the template without the extension. For example, `Haskell`. | `string` | `null` | no |
 | <a name="input_has_discussions"></a> [has_discussions](#input_has_discussions) | Set to `true` to enable GitHub Discussions on the repository. Defaults to `false`. | `bool` | `false` | no |
-| <a name="input_has_downloads"></a> [has_downloads](#input_has_downloads) | Set to `true` to enable the (deprecated) downloads features on the repository. | `bool` | `false` | no |
 | <a name="input_has_issues"></a> [has_issues](#input_has_issues) | Set to `true` to enable the GitHub Issues features on the repository. | `bool` | `false` | no |
 | <a name="input_has_projects"></a> [has_projects](#input_has_projects) | Set to `true` to enable the GitHub Projects features on the repository. Per the GitHub documentation when in an organization that has disabled repository projects it will default to false and will otherwise default to true. If you specify true when it has been disabled it will return an error. | `bool` | `false` | no |
 | <a name="input_has_wiki"></a> [has_wiki](#input_has_wiki) | Set to `true` to enable the GitHub Wiki features on the repository. | `bool` | `false` | no |

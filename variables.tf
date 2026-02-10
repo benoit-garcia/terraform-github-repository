@@ -120,12 +120,6 @@ variable "has_discussions" {
   type        = bool
   default     = false
 }
-variable "has_downloads" {
-  description = "Set to `true` to enable the (deprecated) downloads features on the repository."
-  type        = bool
-  default     = false
-}
-
 variable "has_issues" {
   description = "Set to `true` to enable the GitHub Issues features on the repository."
   type        = bool

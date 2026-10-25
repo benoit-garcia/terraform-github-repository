@@ -22,13 +22,13 @@ module "repo" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement_terraform) | ~> 1 |
-| <a name="requirement_github"></a> [github](#requirement_github) | ~> 6, >= 6.2.1 |
+| <a name="requirement_github"></a> [github](#requirement_github) | ~> 6, >= 6.12.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_github"></a> [github](#provider_github) | ~> 6, >= 6.2.1 |
+| <a name="provider_github"></a> [github](#provider_github) | ~> 6, >= 6.12.0 |
 
 ## Resources
 
@@ -40,6 +40,7 @@ module "repo" {
 | [github_issue_label.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/issue_label) | resource |
 | [github_repository.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository) | resource |
 | [github_repository_ruleset.tag_protection](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_ruleset) | resource |
+| [github_repository_vulnerability_alerts.this](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_vulnerability_alerts) | resource |
 | [github_team.maintain](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team) | resource |
 | [github_team.read](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team) | resource |
 | [github_team.write](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/team) | resource |

@@ -7,7 +7,6 @@ resource "github_repository" "this" {
   is_template                 = var.is_template
   topics                      = var.topics
   visibility                  = var.visibility
-  vulnerability_alerts        = var.vulnerability_alerts
   web_commit_signoff_required = var.web_commit_signoff_required
 
   # Initialization settings
@@ -88,4 +87,9 @@ resource "github_repository_ruleset" "tag_protection" {
     update           = true
     non_fast_forward = true
   }
+}
+
+resource "github_repository_vulnerability_alerts" "this" {
+  repository = github_repository.this.name
+  enabled    = var.vulnerability_alerts
 }

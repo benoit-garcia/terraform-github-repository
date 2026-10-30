@@ -90,6 +90,8 @@ resource "github_repository_ruleset" "tag_protection" {
 }
 
 resource "github_repository_vulnerability_alerts" "this" {
+  count = var.archived ? 0 : 1
+
   repository = github_repository.this.name
   enabled    = var.vulnerability_alerts
 }
